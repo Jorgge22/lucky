@@ -63,3 +63,41 @@ window.addEventListener('click', (e) => {
         modal.style.display = 'none';
     }
 });
+
+// --- Contador de días, horas, minutos y segundos hasta el 19 de diciembre ---
+const counterElement = document.getElementById('counter');  // Referencia al contenedor donde se mostrará el contador
+
+// Función para calcular el tiempo restante
+function updateCounter() {
+    const today = new Date();  // Fecha actual
+    const targetDate = new Date('2024-12-19T00:00:00');  // Fecha objetivo: 19 de diciembre de 2024 a las 00:00:00
+    const timeDifference = targetDate - today;  // Diferencia en milisegundos
+
+    // Calcular los días, horas, minutos y segundos restantes
+    const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+
+    // Mostrar el tiempo restante de manera bonita
+    counterElement.innerHTML = `
+        <div class="counter-time">
+            <span class="counter-number">${days}</span> días
+        </div>
+        <div class="counter-time">
+            <span class="counter-number">${hours}</span> horas
+        </div>
+        <div class="counter-time">
+            <span class="counter-number">${minutes}</span> minutos
+        </div>
+        <div class="counter-time">
+            <span class="counter-number">${seconds}</span> segundos
+        </div>
+    `;
+}
+
+// Actualizar el contador al cargar la página
+updateCounter();
+
+// Actualizar el contador cada segundo
+setInterval(updateCounter, 1000);
