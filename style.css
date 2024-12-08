@@ -366,3 +366,55 @@ footer {
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
+
+/* Estilo para el contador */
+#counter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    font-size: 2em;
+    color: #ff6f61;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.counter-time {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 15px;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+}
+
+.counter-time:hover {
+    transform: scale(1.1);
+}
+
+.counter-number {
+    font-size: 3em;
+    color: #ff9a9e;
+}
+
+@media (max-width: 768px) {
+    #counter {
+        font-size: 1.5em;
+    }
+
+    .counter-number {
+        font-size: 2.5em;
+    }
+}
+
+@media (max-width: 480px) {
+    #counter {
+        font-size: 1.2em;
+    }
+
+    .counter-number {
+        font-size: 2em;
+    }
+}
