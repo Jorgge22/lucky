@@ -498,18 +498,57 @@ footer {
     display: none;
 }
 
-/* Estilo para los botones */
-button {
-    padding: 10px 20px;
-    background: #ff6f61;
-    color: #fff;
-    font-size: 1em;
-    font-weight: bold;
+.pushable {
+    position: relative;
+    display: inline-block;
+    padding: 0;
     border: none;
-    border-radius: 50px;
+    background: none;
     cursor: pointer;
+    outline-offset: 4px;
 }
 
-button:disabled {
-    background: #ccc;
+.pushable .shadow {
+    position: absolute;
+    top: 6px;
+    left: 6px;
+    width: 100%;
+    height: 100%;
+    background: #c8377d; /* Sombra del botón */
+    border-radius: 12px;
+    transition: transform 0.2s;
 }
+
+.pushable .edge {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #ff69b4; /* Borde del botón */
+    border-radius: 12px;
+}
+
+.pushable .front {
+    position: relative;
+    display: block;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: white;
+    background: #ff85c2; /* Color principal del botón */
+    border-radius: 12px;
+    box-shadow: inset 0px -4px 0px rgba(0, 0, 0, 0.2);
+    text-decoration: none;
+    text-align: center;
+    transition: background 0.2s;
+}
+
+.pushable:hover .shadow {
+    transform: translate(2px, 2px);
+}
+
+.pushable:hover .front {
+    background: #ff99cf; /* Color más claro al pasar el ratón */
+}
+

@@ -9,7 +9,7 @@
     <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
     <script>
         // Inicializar EmailJS con tu user ID
-        (function() {
+        (function () {
             emailjs.init("jorge.bargagri@gmail.com");  // Reemplaza con tu User ID de EmailJS
         })();
 
@@ -19,20 +19,20 @@
                 to_email: 'jorge.bargagri@gmail.com', // Tu correo
                 subject: 'Alguien intentó acceder a los 4 meses antes del 19',
                 message: 'Alguien intentó acceder a la página de los 4 meses antes del 19 de diciembre. Visitaron la página el ' + new Date()
-            }).then(function(response) {
+            }).then(function (response) {
                 console.log('Mensaje enviado con éxito', response);
-            }, function(error) {
+            }, function (error) {
                 console.log('Error al enviar el mensaje', error);
             });
         }
 
         // Comprobar si la fecha actual es antes del 19 de diciembre
-        document.addEventListener("DOMContentLoaded", function() {
+        document.addEventListener("DOMContentLoaded", function () {
             const deadline = new Date('2024-12-19');  // Fecha límite
             const currentDate = new Date();
             const messageElement = document.getElementById('message');
             const contentElement = document.getElementById('content');
-            
+
             if (currentDate < deadline) {
                 // Si la fecha actual es antes del 19 de diciembre
                 messageElement.style.display = 'block';  // Mostrar el mensaje
@@ -52,7 +52,11 @@
         <h1>4 Meses</h1>
         <nav>
             <div id="nav-buttons">
-                <button id="btn-back">Volver al Menú</button>
+                <button class="pushable">
+                    <span class="shadow"></span>
+                    <span class="edge"></span>
+                    <a href="index.html" class="front">Volver al Menú</a>
+                </button>
             </div>
         </nav>
     </header>
