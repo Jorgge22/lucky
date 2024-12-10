@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4 Meses</title>
+    <link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script>
+        // Inicializar EmailJS con tu user ID
+        (function() {
+            emailjs.init("jorge.bargagri@gmail.com");  // Reemplaza con tu User ID de EmailJS
+        })();
+
+        // Función para enviar la notificación
+        function sendEmailNotification() {
+            emailjs.send('service_id', 'template_id', {
+                to_email: 'jorge.bargagri@gmail.com', // Tu correo
+                subject: 'Alguien intentó acceder a los 4 meses antes del 19',
+                message: 'Alguien intentó acceder a la página de los 4 meses antes del 19 de diciembre. Visitaron la página el ' + new Date()
+            }).then(function(response) {
+                console.log('Mensaje enviado con éxito', response);
+            }, function(error) {
+                console.log('Error al enviar el mensaje', error);
+            });
+        }
+
+        // Comprobar si la fecha actual es antes del 19 de diciembre
+        document.addEventListener("DOMContentLoaded", function() {
+            const deadline = new Date('2024-12-19');  // Fecha límite
+            const currentDate = new Date();
+            const messageElement = document.getElementById('message');
+            const contentElement = document.getElementById('content');
+            
+            if (currentDate < deadline) {
+                // Si la fecha actual es antes del 19 de diciembre
+                messageElement.style.display = 'block';  // Mostrar el mensaje
+                contentElement.style.display = 'none';   // Ocultar el contenido
+                sendEmailNotification();  // Enviar la notificación
+            } else {
+                // Si es después del 19 de diciembre
+                messageElement.style.display = 'none';  // Ocultar el mensaje
+                contentElement.style.display = 'block'; // Mostrar el contenido
+            }
+        });
+    </script>
+</head>
+
+<body>
+    <header>
+        <h1>4 Meses</h1>
+        <nav>
+            <div id="nav-buttons">
+                <button id="btn-back">Volver al Menú</button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Mensaje cuando la página no está disponible -->
+        <section id="fourMonthsSection">
+            <p id="message">
+                Lo siento, la página de los 4 meses no está disponible hasta el 19 de diciembre.
+            </p>
+
+            <!-- Contenido de los 4 meses que se muestra después del 19 de diciembre -->
+            <section id="content" style="display:none;">
+                <h2>¡Felicidades! Ahora puedes acceder al contenido de los 4 meses. 🎉</h2>
+                <p>Aquí irá todo el contenido especial para los 4 meses.</p>
+                <!-- Aquí puedes poner más contenido específico para los 4 meses -->
+            </section>
+        </section>
+    </main>
+
+    <footer>
+        <p>Con todo mi amor, Rocío</p>
+    </footer>
+</body>
+
+</html>

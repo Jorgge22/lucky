@@ -62,28 +62,32 @@ main {
 
 .photos img:hover {
     transform: scale(1.2);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .button-container {
     margin-top: 30px;
 }
 
+/* Estilo para los botones */
 button {
-    padding: 10px 20px;
-    background: #ff6f61;
-    color: #fff;
-    font-size: 1em;
-    font-weight: bold;
-    border: none;
-    border-radius: 50px;
-    cursor: pointer;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    transition: background 0.3s, transform 0.2s;
+    background-color: #4CAF50; /* Color de fondo */
+    border: none; /* Sin borde */
+    color: white; /* Color del texto */
+    padding: 10px 20px; /* Espaciado interno */
+    text-align: center; /* Alineación del texto */
+    text-decoration: none; /* Sin subrayado */
+    display: inline-block; /* Para que el botón sea en línea */
+    font-size: 16px; /* Tamaño de la fuente */
+    cursor: pointer; /* Cursor de puntero */
+    border-radius: 5px; /* Bordes redondeados */
+    transition: background-color 0.3s; /* Transición al pasar el ratón */
 }
 
+/* Estilo cuando el ratón pasa sobre el botón */
 button:hover {
-    background: #ff8a7a;
-    transform: scale(1.1);
+    background-color: #45a049; /* Color de fondo al pasar el ratón */
 }
 
 footer {
@@ -174,7 +178,6 @@ footer {
 .pushable:focus:not(:focus-visible) {
     outline: none;
 }
-
 
 /* Modal Styles */
 .modal {
@@ -355,6 +358,32 @@ footer {
     color: #ff6f61;
 }
 
+#modalImage {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+#modalText {
+    font-size: 1.5em;
+    color: #ff6f61;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 2em;
+    color: #999;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.close:hover {
+    color: #ff6f61;
+}
+
 /* Estilo para las imágenes en el modal */
 #photoModal img {
     max-width: 90%;
@@ -365,4 +394,122 @@ footer {
     /* Ajusta la imagen para que se mantenga proporcional */
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilo para el contador */
+#counter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    font-size: 2em;
+    color: #ff6f61;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.counter-time {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 15px;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+}
+
+.counter-time:hover {
+    transform: scale(1.1);
+}
+
+.counter-number {
+    font-size: 3em;
+    color: #ff9a9e;
+}
+
+@media (max-width: 768px) {
+    #counter {
+        font-size: 1.5em;
+    }
+
+    .counter-number {
+        font-size: 2.5em;
+    }
+}
+
+@media (max-width: 480px) {
+    #counter {
+        font-size: 1.2em;
+    }
+
+    .counter-number {
+        font-size: 2em;
+    }
+}
+
+#counter {
+    display: flex;
+    /* Asegúrate de que esté visible y use flexbox */
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    font-size: 2em;
+    color: #ff6f61;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+#counter {
+    /* Elimina display: none o asegúrate de que no esté aquí */
+    font-size: 20px;
+    margin-top: 20px;
+    text-align: center;
+}
+
+#welcomeScreen {
+    display: block;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Pantalla de bienvenida */
+#welcomeScreen {
+    display: block;
+    text-align: center;
+    margin-top: 50px;
+}
+
+#welcomeScreen .message {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+}
+
+#welcomeScreen #nav-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+/* Estilo para las secciones ocultas */
+.hidden {
+    display: none;
+}
+
+/* Estilo para los botones */
+button {
+    padding: 10px 20px;
+    background: #ff6f61;
+    color: #fff;
+    font-size: 1em;
+    font-weight: bold;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+button:disabled {
+    background: #ccc;
 }
