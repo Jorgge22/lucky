@@ -6,43 +6,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>4 Meses</title>
     <link rel="stylesheet" href="style.css">
-    <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
     <script>
-        // Inicializar EmailJS con tu user ID
-        (function () {
-            emailjs.init("jorge.bargagri@gmail.com");  // Reemplaza con tu User ID de EmailJS
-        })();
-
-        // Función para enviar la notificación
-        function sendEmailNotification() {
-            emailjs.send('service_id', 'template_id', {
-                to_email: 'jorge.bargagri@gmail.com', // Tu correo
-                subject: 'Alguien intentó acceder a los 4 meses antes del 19',
-                message: 'Alguien intentó acceder a la página de los 4 meses antes del 19 de diciembre. Visitaron la página el ' + new Date()
-            }).then(function (response) {
-                console.log('Mensaje enviado con éxito', response);
-            }, function (error) {
-                console.log('Error al enviar el mensaje', error);
-            });
-        }
-
-        // Comprobar si la fecha actual es antes del 19 de diciembre
         document.addEventListener("DOMContentLoaded", function () {
-            const deadline = new Date('2024-12-19');  // Fecha límite
-            const currentDate = new Date();
+            const deadline = new Date('2024-12-19'); // Fecha límite
+            const currentDate = new Date('2024-12-19');
             const messageElement = document.getElementById('message');
             const contentElement = document.getElementById('content');
+            const revealButton = document.getElementById('reveal-content');
 
             if (currentDate < deadline) {
-                // Si la fecha actual es antes del 19 de diciembre
-                messageElement.style.display = 'block';  // Mostrar el mensaje
-                contentElement.style.display = 'none';   // Ocultar el contenido
-                sendEmailNotification();  // Enviar la notificación
+                // Mostrar el mensaje inicial y ocultar el contenido
+                messageElement.style.display = 'block';
+                contentElement.style.display = 'none';
+                revealButton.style.display = 'none'; // Ocultar botón antes del 19
             } else {
-                // Si es después del 19 de diciembre
-                messageElement.style.display = 'none';  // Ocultar el mensaje
-                contentElement.style.display = 'block'; // Mostrar el contenido
+                // Mostrar mensaje y botón después del 19
+                messageElement.style.display = 'block';
+                revealButton.style.display = 'block'; // Mostrar botón
             }
+
+            // Mostrar el contenido al pulsar el botón
+            revealButton.addEventListener('click', () => {
+                contentElement.style.display = 'block'; // Mostrar el contenido
+                revealButton.style.display = 'none'; // Ocultar el botón
+            });
         });
     </script>
 </head>
@@ -62,13 +49,25 @@
     </header>
 
     <main>
-        <!-- Mensaje cuando la página no está disponible -->
+        <!-- Mensaje inicial -->
         <section id="fourMonthsSection">
-            <p id="message">Donde vas lista que eres mu lista, hasta el día 19 nada :).</p>
+            <p id="message" style="display:none;">
+                Ha llegado el momento de conocer el lugar al que iremos para celebrar estos 4 meses, un lugar acogedor y
+                tranquilo para pasar un día perfecto en pareja:
+            </p>
 
-            <!-- Contenido de los 4 meses que se muestra después del 19 de diciembre -->
+            <!-- Botón para revelar el contenido -->
+            <div id="reveal-button-container" style="text-align: center; margin-top: 20px;">
+                <button id="reveal-content" style="display:none;" class="pushable">
+                    <span class="shadow"></span>
+                    <span class="edge"></span>
+                    <span class="front">Descubre el Lugar</span>
+                </button>
+            </div>
+
+            <!-- Contenido principal que se muestra después del botón -->
             <section id="content" style="display:none;">
-                <section class="content">
+                <div class="content">
                     <!-- Imagen principal -->
                     <div class="image-container">
                         <img src="escorial.png" alt="Foto del lugar especial" class="main-image">
@@ -78,17 +77,17 @@
                     <div class="text-container">
                         <h2>¿Por qué aquí?</h2>
                         <p>
-                            Puede parecer un sitio sin más o una tonteria. Actualmente puede que te estés preguntando
-                            que
+                            Puede parecer un sitio sin más o una tontería. Actualmente puede que te estés preguntando
+                            qué
                             sitio es este, bien lo descubrirás.
-                            El año pasado fui por primera vez aqui y es un sitio que me encantó y dije que volvería, en
+                            El año pasado fui por primera vez aquí y es un sitio que me encantó y dije que volvería, en
                             verano hablamos de venir, no es un sitio que te
-                            apasione pero dijiste que aceptabas venir y se que te gustará. Tengo muchas ganas de volver
+                            apasione pero dijiste que aceptabas venir y sé que te gustará. Tengo muchas ganas de volver
                             y
-                            con quien mejor que contigo, asi que sí
-                            nos vamos a <b>El Escorial.</b> Te dejo por aqui un par de fotos para que vea slo bonito que
+                            con quién mejor que contigo, así que sí,
+                            nos vamos a <b>El Escorial.</b> Te dejo por aquí un par de fotos para que veas lo bonito que
                             es
-                            y que se que te gustará.
+                            y sé que te gustará.
                         </p>
 
                         <div class="image-seccion">
@@ -96,9 +95,15 @@
                             <img src="BIBLIOTECA-ESCORIAL.jpg" alt="Un lindo paseo" class="photo">
                             <img src="img2.rtve.jpg" alt="Nuestro primer selfie" class="photo">
                             <img src="jardines.jpg" alt="Nuestro primer selfie" class="photo">
+                            <img src="image0.jpeg" alt="Nosotros en la playa" class="photo">
+                            <img src="image1.jpeg" alt="Un lindo paseo" class="photo">
+                            <img src="image2.jpeg" alt="Nuestro primer selfie" class="photo">
+                            <img src="image3.jpeg" alt="Nuestro primer selfie" class="photo">
+                            <img src="image4.jpeg" alt="Nuestro primer selfie" class="photo">
+                            <img src="image5.jpeg" alt="Nuestro primer selfie" class="photo">
                         </div>
                     </div>
-                </section>
+                </div>
             </section>
         </section>
     </main>

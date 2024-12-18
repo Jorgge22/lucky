@@ -68,6 +68,7 @@ main {
 
 .button-container {
     margin-top: 30px;
+    text-align: center;
 }
 
 /* Estilo para los botones */
@@ -498,14 +499,13 @@ footer {
     display: none;
 }
 
-.pushable {
-    position: relative;
-    display: inline-block;
-    padding: 0;
-    border: none;
-    background: none;
-    cursor: pointer;
-    outline-offset: 4px;
+.pushable { position: relative; 
+    display: inline-block; /* Hace que el botón respete el centrado */ 
+    padding: 0; 
+    border: none; /* Elimina bordes por defecto */ 
+    background: none; 
+    cursor: pointer; /* Cursor tipo puntero */ 
+    outline-offset: 4px; text-decoration: none; /* Elimina subrayado si es un enlace */
 }
 
 .pushable .shadow {
@@ -604,4 +604,9 @@ footer {
     transform: scale(1.2);
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#reveal-button-container {
+    text-align: center; /* Centra el contenido horizontalmente */
+    margin-top: 20px;
 }
